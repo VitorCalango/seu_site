@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos - Sua Loja de Faróis e Lanternas</title>
+
+    <meta name="description" content="Acompanhe o status de seus pedidos na Automotive Parts. Veja histórico de compras e detalhes de entrega de faróis e lanternas.">
+    <meta name="keywords" content="meus pedidos, status pedido, histórico de compras, Automotive Parts, faróis, lanternas">
+    <meta name="author" content="Automotive Parts">
+    <meta name="robots" content="noindex, follow"> <meta property="og:title" content="Meus Pedidos - Automotive Parts">
+    <meta property="og:description" content="Acompanhe seus pedidos de iluminação automotiva.">
+    <meta property="og:image" content="https://www.seusite.com.br/frontend/assets/img/social-share-image.jpg">
+    <meta property="og:url" content="https://www.seusite.com.br/frontend/pages/meus_pedidos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@SeuUsuarioTwitter">
+    <meta name="twitter:title" content="Meus Pedidos - Automotive Parts">
+    <meta name="twitter:description" content="Acompanhe seus pedidos de iluminação automotiva.">
+    <meta name="twitter:image" content="https://www.seusite.com.br/frontend/assets/img/social-share-image.jpg">
+
+    <link rel="icon" href="../assets/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/icons/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Estilos específicos para a página de Meus Pedidos */
+        .orders-container {
+            padding: 4rem 1.25rem;
+            text-align: center;
+            max-width: 60rem; /* 960px */
+            margin: 0 auto;
+            background-color: var(--background-light);
+            border-radius: 0.75rem;
+            box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.05);
+        }
+
+        .orders-container h2 {
+            margin-bottom: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .order-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .order-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.625rem;
+            box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-0.3125rem);
+            box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.12);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.8rem;
+        }
+
+        .order-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary-color);
+        }
+
+        .order-status {
+            font-weight: bold;
+            padding: 0.3rem 0.7rem;
+            border-radius: 0.3rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        .status-pendente { background-color: #ffc107; color: #333; } /* Amarelo */
+        .status-enviado { background-color: #17a2b8; color: #fff; } /* Azul claro */
+        .status-entregue { background-color: #28a745; color: #fff; } /* Verde */
+        .status-cancelado { background-color: #dc3545; color: #fff; } /* Vermelho */
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            gap: 1rem;
+        }
+
+        .order-item img {
+            width: 4rem; /* Miniatura do produto */
+            height: 4rem;
+            object-fit: cover;
+            border-radius: 0.25rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-details p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .item-details .item-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .item-details .item-price {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .order-total {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-color);
+        }
+        .no-orders {
+            font-size: 1.2rem;
+            color: #666;
+            padding: 2rem;
+            border: 1px dashed var(--border-color);
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 48rem) {
+            .orders-container {
+                padding: 2rem 1rem;
+            }
+            .order-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .order-total {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body class="fade-in">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../assets/img/icons/automotiveparts.png" alt="Automotive Parts Logo">
+                </a>
+            </div>
+            <ul class="main-nav">
+                <li><a href="produtos.html">Produtos</a></li>
+                <li><a href="farois.html">Faróis</a></li>
+                <li><a href="lanternas.html">Lanternas</a></li>
+                <li><a href="destaques.html">Destaques</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="user-profile-menu">
+                <img src="../assets/img/icons/user_avatar.png" alt="Avatar do Usuário" class="user-avatar" id="userAvatar">
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="gerenciar_perfil.html" class="dropdown-item">Gerenciar Perfil</a>
+                    <a href="meus_pedidos.html" class="dropdown-item">Meus Pedidos</a>
+                    <a href="index.html" class="dropdown-item logout-item">Sair</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <button onclick="window.history.back()" class="back-button">← Voltar</button>
+
+    <main>
+        <section class="orders-container" data-aos="fade-up">
+            <h2>Meus Pedidos</h2>
+
+            <div class="order-list">
+                <div class="order-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="order-header">
+                        <h3>Pedido #202500123</h3>
+                        <span class="order-status status-entregue">Entregue</span>
+                    </div>
+                    <div class="order-item">
+                        <img src="../assets/img/products/farol_led.jpg" alt="Farol LED Premium">
+                        <div class="item-details">
+                            <p class="item-name">Farol LED Premium para Corolla</p>
+                            <p>Quantidade: 1</p>
+                            <p class="item-price">R$ 650,00</p>
+                        </div>
+                    </div>
+                    <div class="order-item">
+                        <img src="../assets/img/products/lanterna_neblina.jpg" alt="Lanterna de Neblina LED">
+                        <div class="item-details">
+                            <p class="item-name">Lanterna de Neblina LED</p>
+                            <p>Quantidade: 2</p>
+                            <p class="item-price">R$ 270,00</p>
+                        </div>
+                    </div>
+                    <p class="order-total">Total: R$ 920,00</p>
+                </div>
+
+                <div class="order-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="order-header">
+                        <h3>Pedido #202500456</h3>
+                        <span class="order-status status-pendente">Pendente</span>
+                    </div>
+                    <div class="order-item">
+                        <img src="../assets/img/products/lanterna_traseira.jpg" alt="Lanterna Traseira Esportiva">
+                        <div class="item-details">
+                            <p class="item-name">Lanterna Traseira Esportiva Civic</p>
+                            <p>Quantidade: 1</p>
+                            <p class="item-price">R$ 220,00</p>
+                        </div>
+                    </div>
+                    <p class="order-total">Total: R$ 220,00</p>
+                </div>
+
+                <div class="order-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="order-header">
+                        <h3>Pedido #202500789</h3>
+                        <span class="order-status status-enviado">Enviado</span>
+                    </div>
+                    <div class="order-item">
+                        <img src="../assets/img/products/farol_milha_led.jpg" alt="Farol de Milha LED">
+                        <div class="item-details">
+                            <p class="item-name">Par Farol de Milha LED</p>
+                            <p>Quantidade: 1</p>
+                            <p class="item-price">R$ 150,00</p>
+                        </div>
+                    </div>
+                    <p class="order-total">Total: R$ 150,00</p>
+                </div>
+
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sua Loja de Faróis e Lanternas. Todos os direitos reservados.</p>
+        <div class="contact-info">
+            <p>Email: contato@suamarca.com</p>
+            <p>Telefone: (11) XXXX-XXXX</p>
+            <p>WhatsApp: <a href="https://wa.me/5511959222391" target="_blank" rel="noopener noreferrer">(11) 95922-2391</a></p>
+        </div>
+        <div class="social-media">
+            </div>
+    </footer>
+    <a href="https://wa.me/5511959222391?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20peças%20automotivas."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Fale conosco pelo WhatsApp">
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+      AOS.init();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userAvatar = document.getElementById('userAvatar');
+            const userDropdown = document.getElementById('userDropdown');
+            const userProfileMenu = document.querySelector('.user-profile-menu');
+
+            if (userAvatar && userDropdown && userProfileMenu) {
+                userAvatar.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    userProfileMenu.classList.toggle('active');
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!userProfileMenu.contains(event.target) && userProfileMenu.classList.contains('active')) {
+                        userProfileMenu.classList.remove('active');
+                    }
+                });
+
+                userDropdown.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

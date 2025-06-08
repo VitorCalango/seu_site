@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Produtos - Sua Loja de Faróis e Lanternas</title>
+
+    <meta name="description" content="Descubra o catálogo completo da Automotive Parts: faróis, lanternas e todos os acessórios de iluminação automotiva.">
+    <meta name="keywords" content="produtos automotivos, catálogo completo, faróis, lanternas, peças automotivas, iluminação veicular, Automotive Parts">
+    <meta name="author" content="Automotive Parts">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Todos os Produtos - Automotive Parts">
+    <meta property="og:description" content="Nosso catálogo completo de soluções em iluminação automotiva. Encontre a peça perfeita para seu veículo.">
+    <meta property="og:image" content="https://www.seusite.com.br/frontend/assets/img/social-share-image.jpg"> <meta property="og:url" content="https://www.seusite.com.br/frontend/pages/produtos.html"> <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@SeuUsuarioTwitter">
+    <meta name="twitter:title" content="Todos os Produtos - Automotive Parts">
+    <meta name="twitter:description" content="Nosso catálogo completo de soluções em iluminação automotiva. Encontre a peça perfeita para seu veículo.">
+    <meta name="twitter:image" content="https://www.seusite.com.br/frontend/assets/img/social-share-image.jpg">
+
+    <link rel="icon" href="../assets/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/img/icons/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Estilos específicos para a página de produtos (ajustes no padding e centralização) */
+        .products-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/img/hero/hero_products_full.jpg') no-repeat center center/cover; /* Imagem de fundo ajustada */
+            height: 25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .products-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .products-page-container {
+            padding: 2rem 1.25rem;
+            text-align: center;
+            max-width: 75rem;
+            margin: 0 auto;
+        }
+
+        .products-page-container h2 {
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 48rem) {
+            .products-hero {
+                height: 18rem;
+            }
+            .products-hero h1 {
+                font-size: 2.2rem;
+            }
+            .products-page-container {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="fade-in">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="../assets/img/icons/automotiveparts.png" alt="Automotive Parts Logo">
+                </a>
+            </div>
+            <ul class="main-nav">
+                <li><a href="farois.html">Faróis</a></li>
+                <li><a href="lanternas.html">Lanternas</a></li>
+                <li><a href="destaques.html">Destaques</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <div class="user-profile-menu">
+                <img src="../assets/img/icons/user_avatar.png" alt="Avatar do Usuário" class="user-avatar" id="userAvatar">
+                <div class="dropdown-menu" id="userDropdown">
+                    <a href="gerenciar_perfil.html" class="dropdown-item">Gerenciar Perfil</a>
+                    <a href="meus_pedidos.html" class="dropdown-item">Meus Pedidos</a>
+                    <a href="index.html" class="dropdown-item logout-item">Sair</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <button onclick="window.history.back()" class="back-button">← Voltar</button>
+
+    <main>
+        <section class="products-hero" data-aos="fade-down">
+            <h1>Todos os Nossos Produtos</h1>
+        </section>
+
+        <section class="products-page-container">
+            <h2 data-aos="fade-up">Catálogo Completo de Iluminação Automotiva</h2>
+            <div class="product-grid">
+                <div class="product-card" data-aos="fade-up" data-aos-delay="50">
+                    <img src="../assets/img/products/farol_led.jpg" alt="Farol LED Ultra Brilhante">
+                    <h3>Farol LED Ultra Brilhante</h3>
+                    <p class="price">R$ 650,00</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+                <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="../assets/img/products/farol_xenon.jpg" alt="Kit Farol Xenon H4">
+                    <h3>Kit Farol Xenon H4</h3>
+                    <p class="price">R$ 499,90</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+                <div class="product-card" data-aos="fade-up" data-aos-delay="150">
+                    <img src="../assets/img/products/farol_projecao.jpg" alt="Farol de Projeção Audi Style">
+                    <h3>Farol de Projeção Audi Style</h3>
+                    <p class="price">R$ 890,00</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="../assets/img/products/lanterna_traseira.jpg" alt="Lanterna Traseira LED Sport">
+                    <h3>Lanterna Traseira LED Sport</h3>
+                    <p class="price">R$ 220,00</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+                <div class="product-card" data-aos="fade-up" data-aos-delay="250">
+                    <img src="../assets/img/products/lanterna_neblina.jpg" alt="Lanterna de Neblina LED">
+                    <h3>Lanterna de Neblina LED</h3>
+                    <p class="price">R$ 135,00</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+                <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="../assets/img/products/lanterna_pisca_led.jpg" alt="Setas Laterais LED Dinâmicas">
+                    <h3>Setas Laterais LED Dinâmicas</h3>
+                    <p class="price">R$ 95,00</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+
+                <div class="product-card" data-aos="fade-up" data-aos-delay="350">
+                    <img src="../assets/img/products/farol_milha_led.jpg" alt="Farol de Milha LED Universal">
+                    <h3>Farol de Milha LED Universal</h3>
+                    <p class="price">R$ 150,00</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+                <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="../assets/img/products/lanterna_led_fumê.jpg" alt="Lanterna Traseira LED Fumê">
+                    <h3>Lanterna Traseira LED Fumê</h3>
+                    <p class="price">R$ 280,00</p>
+                    <a href="#" class="button">Ver Detalhes</a>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sua Loja de Faróis e Lanternas. Todos os direitos reservados.</p>
+        <div class="contact-info">
+            <p>Email: contato@suamarca.com</p>
+            <p>Telefone: (11) XXXX-XXXX</p>
+            <p>WhatsApp: <a href="https://wa.me/5511959222391" target="_blank" rel="noopener noreferrer">(11) 95922-2391</a></p>
+        </div>
+        <div class="social-media">
+            <a href="https://www.facebook.com/SuaMarca" target="_blank" aria-label="Visite nosso Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/SuaMarca" target="_blank" aria-label="Visite nosso Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/SuaMarca" target="_blank" aria-label="Visite nosso Youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/SuaMarca" target="_blank" aria-label="Visite nosso LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+    </footer>
+    <a href="https://wa.me/5511959222391?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20peças%20automotivas."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Fale conosco pelo WhatsApp">
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+      AOS.init();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userAvatar = document.getElementById('userAvatar');
+            const userDropdown = document.getElementById('userDropdown');
+            const userProfileMenu = document.querySelector('.user-profile-menu');
+
+            if (userAvatar && userDropdown && userProfileMenu) {
+                userAvatar.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    userProfileMenu.classList.toggle('active');
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!userProfileMenu.contains(event.target) && userProfileMenu.classList.contains('active')) {
+                        userProfileMenu.classList.remove('active');
+                    }
+                });
+
+                userDropdown.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
