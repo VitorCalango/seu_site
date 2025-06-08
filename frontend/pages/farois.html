@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faróis - Sua Loja de Iluminação Automotiva</title>
+    <title>Faróis - Luvitek Automotive Parts</title>
 
     <meta name="description" content="Explore nossa seleção de faróis automotivos de alta tecnologia. Encontre faróis LED, Xenon e Projetores para segurança e estilo.">
-    <meta name="keywords" content="faróis automotivos, farol LED, farol Xenon, farol projetor, iluminação dianteira, Automotive Parts">
-    <meta name="author" content="Automotive Parts">
+    <meta name="keywords" content="faróis automotivos, farol LED, farol Xenon, farol projetor, iluminação dianteira, Luvitek Automotive Parts">
+    <meta name="author" content="Luvitek Automotive Parts">
     <meta name="robots" content="index, follow">
 
-    <meta property="og:title" content="Faróis - Automotive Parts">
+    <meta property="og:title" content="Faróis - Luvitek Automotive Parts">
     <meta property="og:description" content="Tecnologia e segurança em cada feixe de luz. Os melhores faróis para o seu veículo.">
     <meta property="og:image" content="https://www.seusite.com.br/frontend/assets/img/social-share-image.jpg"> <meta property="og:url" content="https://www.seusite.com.br/frontend/pages/farois.html"> <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@SeuUsuarioTwitter">
-    <meta name="twitter:title" content="Faróis - Automotive Parts">
+    <meta name="twitter:title" content="Faróis - Luvitek Automotive Parts">
     <meta name="twitter:description" content="Tecnologia e segurança em cada feixe de luz. Os melhores faróis para o seu veículo.">
     <meta name="twitter:image" content="https://www.seusite.com.br/frontend/assets/img/social-share-image.jpg">
 
@@ -74,15 +74,20 @@
         <nav>
             <div class="logo">
                 <a href="index.html">
-                    <img src="../assets/img/icons/automotiveparts.png" alt="Automotive Parts Logo">
+                    <img src="../assets/img/icons/luvitek.png" alt="Luvitek logo">
                 </a>
             </div>
             <ul class="main-nav">
+                <li><a href="produtos.html">Produtos</a></li>
                 <li><a href="farois.html">Faróis</a></li>
                 <li><a href="lanternas.html">Lanternas</a></li>
                 <li><a href="destaques.html">Destaques</a></li>
                 <li><a href="contato.html">Contato</a></li>
             </ul>
+            <div class="auth-links">
+                <a href="login.html" class="auth-button">Login</a>
+                <a href="registrar.html" class="auth-button register-btn">Registrar-se</a>
+            </div>
             <div class="user-profile-menu">
                 <img src="../assets/img/icons/user_avatar.png" alt="Avatar do Usuário" class="user-avatar" id="userAvatar">
                 <div class="dropdown-menu" id="userDropdown">
@@ -145,7 +150,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Sua Loja de Faróis e Lanternas. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Luvitek Automotive Parts. Todos os direitos reservados.</p>
         <div class="contact-info">
             <p>Email: contato@suamarca.com</p>
             <p>Telefone: (11) XXXX-XXXX</p>
@@ -156,7 +161,7 @@
             <a href="https://www.instagram.com/SuaMarca" target="_blank" aria-label="Visite nosso Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.youtube.com/SuaMarca" target="_blank" aria-label="Visite nosso Youtube"><i class="fab fa-youtube"></i></a>
             <a href="https://www.linkedin.com/company/SuaMarca" target="_blank" aria-label="Visite nosso LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+        </div>
     </footer>
     <a href="https://wa.me/5511959222391?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20as%20peças%20automotivas."
        class="whatsapp-float"
@@ -170,29 +175,6 @@
     <script>
       AOS.init();
     </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const userAvatar = document.getElementById('userAvatar');
-            const userDropdown = document.getElementById('userDropdown');
-            const userProfileMenu = document.querySelector('.user-profile-menu');
-
-            if (userAvatar && userDropdown && userProfileMenu) {
-                userAvatar.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    userProfileMenu.classList.toggle('active');
-                });
-
-                document.addEventListener('click', function(event) {
-                    if (!userProfileMenu.contains(event.target) && userProfileMenu.classList.contains('active')) {
-                        userProfileMenu.classList.remove('active');
-                    }
-                });
-
-                userDropdown.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                });
-            }
-        });
-    </script>
+    <script src="../assets/js/auth.js"></script>
 </body>
 </html>

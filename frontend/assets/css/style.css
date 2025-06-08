@@ -3,6 +3,8 @@
 /* --- Importar Fontes do Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+/* NOVO: Link para Font Awesome para ícones de redes sociais */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
 
 /* --- Variáveis e Reset Básico --- */
@@ -87,9 +89,9 @@ nav {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif; /* Mantido se houver texto, mas a imagem será a principal */
-    font-size: 1.8rem; /* Mantido se houver texto */
-    font-weight: 700; /* Mantido se houver texto */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
 .logo a {
@@ -125,6 +127,8 @@ nav ul.main-nav li a {
     transition: color 0.3s ease;
     position: relative;
     padding-bottom: 0.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* NOVO: Sombra para o texto */
+    white-space: nowrap; /* NOVO: Impede que o texto quebre linha */
 }
 
 nav ul.main-nav li a:hover {
@@ -149,8 +153,14 @@ nav ul.main-nav li a:hover::after {
 
 
 /* --- Links de Autenticação / Menu de Usuário (Botões do Cabeçalho) --- */
-.auth-links, .user-profile-menu {
-    display: flex;
+.auth-links {
+    display: flex; /* Visível por padrão - será ocultado por JS se logado */
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-profile-menu {
+    display: none; /* OCULTO por padrão - será visível por JS se logado */
     align-items: center;
     gap: 1rem;
     position: relative;
